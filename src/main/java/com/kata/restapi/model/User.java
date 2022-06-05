@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
@@ -21,6 +22,8 @@ public class User implements UserDetails {
     @Column(name = "username", unique = true)
     private String username;
 
+    @NotEmpty(message = "Username cannot be empty")
+    @Size(min = 2, max = 15, message = "Name should be between 2 and 15 latin characters")
     @Column(name = "password")
     private String password;
 
