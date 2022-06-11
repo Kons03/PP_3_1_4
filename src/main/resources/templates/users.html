@@ -43,7 +43,7 @@
                     type="button" role="tab" aria-controls="v-pills-admin-page" aria-selected="true">Admin
             </button>
 
-            <button sec:authorize="hasRole('ROLE_USER')" class="ddpills nav-link text-start" id="user-page-btn"
+            <button sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" class="ddpills nav-link text-start" id="user-page-btn"
                     data-bs-toggle="pill" data-bs-target="#v-pills-user-page"
                     type="button" role="tab" aria-controls="v-pills-user-page" aria-selected="false">User
             </button>
@@ -330,7 +330,7 @@
                     </main>
                 </div>
 
-                <div sec:authorize="hasRole('ROLE_USER')" class="ddtabs tab-pane fade" id="v-pills-user-page"
+                <div sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" class="ddtabs tab-pane fade" id="v-pills-user-page"
                      role="tabpanel" aria-labelledby="v-pills-user-page">
 
 
