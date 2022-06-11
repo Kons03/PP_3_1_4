@@ -1,7 +1,7 @@
 package com.kata.restapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kata.restapi.database.StandartRoles;
+import com.kata.restapi.database.StandardRoles;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -30,7 +30,7 @@ public class Role implements GrantedAuthority {
     public Role() {}
 
 
-    public Role(StandartRoles standartRole){
+    public Role(StandardRoles standartRole){
         this.role = standartRole.name();
     }
 

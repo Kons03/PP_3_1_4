@@ -37,7 +37,7 @@ public class DataBaseInit {
         }
 
         if (roleList == null || roleList.isEmpty()) {
-            for (StandartRoles role : StandartRoles.values()) {
+            for (StandardRoles role : StandardRoles.values()) {
                 roleService.saveRole(new Role(role));
             }
         }
@@ -45,8 +45,8 @@ public class DataBaseInit {
 
     public void addUsersToDB(){
 
-        Role roleUser = roleService.getRoleByName(StandartRoles.ROLE_USER.name());
-        Role roleAdmin = roleService.getRoleByName(StandartRoles.ROLE_ADMIN.name());
+        Role roleUser = roleService.getRoleByName(StandardRoles.ROLE_USER.name());
+        Role roleAdmin = roleService.getRoleByName(StandardRoles.ROLE_ADMIN.name());
 
         userService.saveUsers(
                 new User("Sid", "sid_h", "sid123",
@@ -55,7 +55,11 @@ public class DataBaseInit {
 
                 new User("Misha", "krug", "misha123",
                         "89001002030", "mishakrug@zeka.ru")
-                        .addRoleToUser(roleUser));
+                        .addRoleToUser(roleUser),
+
+                new User("Alla", "pugacheva", "alla123",
+                "89132319077", "allapugach@star.com")
+                        .addRoleToUser(roleAdmin));
     }
 
     @Bean

@@ -1,6 +1,6 @@
 package com.kata.restapi.database;
 
-public enum StandartRoles {
+public enum StandardRoles {
     ROLE_ADMIN,
     ROLE_USER
 }
