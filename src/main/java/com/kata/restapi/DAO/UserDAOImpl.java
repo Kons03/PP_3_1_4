@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAllUsers() {
-        return em.createQuery("SELECT DISTINCT u FROM User u LEFT JOIN FETCH u.roles", User.class).getResultList();
+        return em.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.roles", User.class).getResultList();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUser(Long id) {
-        TypedQuery<User> tq = em.createQuery("SELECT DISTINCT u FROM User u LEFT JOIN FETCH u.roles WHERE u.id=:param", User.class);
+        TypedQuery<User> tq = em.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.roles WHERE u.id=:param", User.class);
         return Optional.of(tq.setParameter("param", id).getSingleResult()).orElse(null);
     }
 
@@ -47,7 +47,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUserByUsername(String name) {
-        TypedQuery<User> tq = em.createQuery("SELECT DISTINCT u FROM User u LEFT JOIN FETCH u.roles WHERE u.username=:param", User.class);
+        TypedQuery<User> tq = em.createQuery("SELECT u FROM User u LEFT JOIN FETCH u.roles WHERE u.username=:param", User.class);
         return tq.setParameter("param", name).getSingleResult();
     }
 }
