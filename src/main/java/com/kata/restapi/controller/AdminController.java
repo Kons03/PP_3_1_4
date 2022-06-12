@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class RoleController {
+public class AdminController {
     private DataBaseInit init;
     private UserService userService;
 
     @Autowired
-    public RoleController(DataBaseInit init, UserService userService) {
+    public AdminController(DataBaseInit init, UserService userService) {
         this.init = init;
         this.userService = userService;
     }

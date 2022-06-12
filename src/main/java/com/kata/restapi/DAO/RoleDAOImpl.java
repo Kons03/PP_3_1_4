@@ -2,7 +2,6 @@ package com.kata.restapi.DAO;
 
 import com.kata.restapi.model.Role;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -20,7 +19,7 @@ public class RoleDAOImpl implements RoleDAO {
 
     @Override
     public List<Role> getAllRoles() {
-        return em.createQuery("select r from Role r", Role.class).getResultList();
+        return em.createQuery("SELECT r FROM Role r", Role.class).getResultList();
     }
 
     @Override
@@ -35,7 +34,7 @@ public class RoleDAOImpl implements RoleDAO {
 
     @Override
     public Role getRoleByName(String name) {
-        TypedQuery<Role> tq = em.createQuery("select r from Role as r where r.role=:param", Role.class);
+        TypedQuery<Role> tq = em.createQuery("SELECT r FROM Role AS r WHERE r.role=:param", Role.class);
         return tq.setParameter("param", name).getResultList().stream().findFirst().orElse(null);
     }
 
